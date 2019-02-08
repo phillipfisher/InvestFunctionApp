@@ -3,10 +3,10 @@ pool:
   
 steps:
 
-- script: dotnet build 'src/InvestFunctionApp/InvestFunctionApp.sln' --configuration $(buildConfiguration)
+- script: 'dotnet build src/InvestFunctionApp/InvestFunctionApp.sln --configuration $(buildConfiguration)'
   displayName: 'Build solution'
     
-- script: dotnet test 'src/InvestFunctionApp/InvestFunctionApp.Tests' --configuration $(buildConfiguration) --logger trx
+- script: 'dotnet test src/InvestFunctionApp/InvestFunctionApp.Tests --configuration $(buildConfiguration) --logger trx'
   displayName: 'Run unit tests'
 
 - task: PublishTestResults@2
