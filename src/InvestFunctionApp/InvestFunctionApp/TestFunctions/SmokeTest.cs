@@ -18,8 +18,8 @@ namespace InvestFunctionApp.TestFunctions
         {            
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            if (!Testing.IsTestEnvironment())
-                return new BadRequestObjectResult("Intentionally broken in Production only!");
+            //if (!Testing.IsTestEnvironment())
+            //    return new BadRequestObjectResult("Intentionally broken in Production only!");
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
