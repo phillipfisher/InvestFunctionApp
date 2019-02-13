@@ -18,20 +18,21 @@ namespace InvestFunctionApp.TestFunctions
         {            
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            return new BadRequestObjectResult("Intentionally broken!");
+            if (!Testing.IsTestEnvironment())
+                return new BadRequestObjectResult("Intentionally broken in Production only!");
 
-            //string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
 
-            //dynamic data = JsonConvert.DeserializeObject(requestBody);
+            dynamic data = JsonConvert.DeserializeObject(requestBody);
 
-            //string azureDevopsReleaseUrl = data?.releaseurl ?? "[releaseurl value not supplied in json request]";
+            string azureDevopsReleaseUrl = data?.releaseurl ?? "[releaseurl value not supplied in json request]";
 
-            //log.LogInformation($"Smoke test for release {azureDevopsReleaseUrl}");
+            log.LogInformation($"Smoke test for release {azureDevopsReleaseUrl}");
 
-            //// We could add extra smoke testing code here, this simple version just allows us to 
-            //// verify that the deployment succeeded and the Function App is responding to HTTP requests
+            // We could add extra smoke testing code here, this simple version just allows us to 
+            // verify that the deployment succeeded and the Function App is responding to HTTP requests
 
-            //return new OkObjectResult("Smoke test successful");
+            return new OkObjectResult("Smoke test successful");
         }
     }
 }

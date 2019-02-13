@@ -13,15 +13,18 @@ namespace InvestFunctionApp.TestFunctions
         /// </summary>
         internal static void AssertInTestEnvironment(ILogger log)
         {
-            var value = Environment.GetEnvironmentVariable(TestEnvironmentConfigKey);
-
-            var isTestingEnvonment = value != null && value == "true";
-
-            if (!isTestingEnvonment)
+            if (!IsTestEnvironment())
             {
                 log.LogError("This function should be disabled in non-testing environments but was called. Check that all testing functions are disabled in production.");
                 throw new InvalidOperationException();
             }
+        }
+
+        internal static bool IsTestEnvironment()
+        {
+            var value = Environment.GetEnvironmentVariable(TestEnvironmentConfigKey);
+
+            return value != null && value == "true";
         }
     }
 }
