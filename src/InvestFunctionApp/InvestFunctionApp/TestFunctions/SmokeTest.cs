@@ -13,7 +13,7 @@ namespace InvestFunctionApp.TestFunctions
     {
         [FunctionName("SmokeTest")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = Testing.TestFunctionRoute + "/smoketest")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = Testing.TestFunctionRoute + "/smoketest")] HttpRequest req,
             ILogger log)
         {            
             log.LogInformation("C# HTTP trigger function processed a request.");
