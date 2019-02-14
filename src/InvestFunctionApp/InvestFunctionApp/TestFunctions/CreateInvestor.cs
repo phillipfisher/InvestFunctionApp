@@ -13,7 +13,7 @@ namespace InvestFunctionApp.TestFunctions
         [FunctionName("CreateInvestor")]
         [return: Table("Portfolio")]
         public static async Task<Investor> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = Testing.TestFunctionRoute + "/createinvestor")] HttpRequest req,            
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = Testing.TestFunctionRoute + "/createinvestor")] HttpRequest req,            
             ILogger log)
         {
             Testing.AssertInTestEnvironment(log);

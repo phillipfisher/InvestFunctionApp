@@ -9,15 +9,11 @@ namespace InvestFunctionApp.EndToEndTests
 {
     public class AddToPortfolioFunctionShould
     {
-        private string CreateInvestorFunctionKey;
-        private string GetInvestorFunctionKey;
-        private string PortfolioFunctionKey;
         private readonly ITestOutputHelper Output;
 
         public AddToPortfolioFunctionShould(ITestOutputHelper output)
         {
             Output = output;
-            ReadTestEnvironmentVariables();            
         }
 
         [Fact]
@@ -52,14 +48,14 @@ namespace InvestFunctionApp.EndToEndTests
         private async Task CreateTestInvestorInTableStorage(Investor investor)
         {
             HttpClient client = new HttpClient();            
-            HttpResponseMessage response = await client.PostAsJsonAsync($"https://aplusinvesttest.azurewebsites.net/api/testing/createinvestor?code={CreateInvestorFunctionKey}", investor);
+            HttpResponseMessage response = await client.PostAsJsonAsync($"https://aplusinvesttest.azurewebsites.net/api/testing/createinvestor", investor);
             response.EnsureSuccessStatusCode();
         }
 
 
         private async Task InvokeAddToPortfolioFunction(string investorId, int amount)
         {
-            var url = $"https://aplusinvesttest.azurewebsites.net/api/portfolio/{investorId}?code={PortfolioFunctionKey}";
+            var url = $"https://aplusinvesttest.azurewebsites.net/api/portfolio/{investorId}";
 
             var deposit = new Deposit { Amount = amount };
 
@@ -72,24 +68,10 @@ namespace InvestFunctionApp.EndToEndTests
         {
             HttpClient client = new HttpClient();
 
-            var response = await client.GetAsync($"https://aplusinvesttest.azurewebsites.net/api/testing/getinvestor/{investorId}?code={GetInvestorFunctionKey}");
+            var response = await client.GetAsync($"https://aplusinvesttest.azurewebsites.net/api/testing/getinvestor/{investorId}");
             response.EnsureSuccessStatusCode();
 
             return JsonConvert.DeserializeObject<Investor>(await response.Content.ReadAsStringAsync());
-        }
-
-        private void ReadTestEnvironmentVariables()
-        {
-            CreateInvestorFunctionKey = ReadEnvironmentVariable("CreateInvestorFunctionKey");
-            GetInvestorFunctionKey = ReadEnvironmentVariable("GetInvestorInvestorFunctionKey");
-            PortfolioFunctionKey = ReadEnvironmentVariable("PortfolioFunctionKey");
-        }
-
-        private string ReadEnvironmentVariable(string variableName)
-        {
-            var value = Environment.GetEnvironmentVariable(variableName);
-            Output.WriteLine($"'{variableName}'='{value ?? "NOT SET"}'");
-            return value;
         }
     }
 }

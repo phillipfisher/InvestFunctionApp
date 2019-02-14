@@ -14,7 +14,7 @@ namespace InvestFunctionApp
         [FunctionName("Portfolio")]
         [return: Queue("deposit-requests")]
         public static async Task<DepositRequest> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "portfolio/{investorId}")]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "portfolio/{investorId}")]HttpRequest req,
             [Table("Portfolio", InvestorType.Individual, "{investorId}")] Investor investor,
             string investorId,
             ILogger log)

@@ -10,7 +10,7 @@ namespace InvestFunctionApp.TestFunctions
     {
         [FunctionName("GetInvestor")]
         public static Investor Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = Testing.TestFunctionRoute + "/getinvestor/{investorId}")]HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = Testing.TestFunctionRoute + "/getinvestor/{investorId}")]HttpRequest req,
             [Table("Portfolio", InvestorType.Individual, "{investorId}")] Investor investor,            
             ILogger log)
         {
