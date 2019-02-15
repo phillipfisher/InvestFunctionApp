@@ -19,7 +19,7 @@
       "kind": "StorageV2",
       "name": "[variables('storageName')]",
       "apiVersion": "2018-07-01",
-      "location": "southcentralus",
+      "location": "[resourceGroup().location]",
       "properties": {
         "networkAcls": {
           "bypass": "AzureServices"
@@ -111,7 +111,11 @@
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value, ';EndpointSuffix=core.windows.net')]"
             },
             {
-              "name": "InvestFunctionApp.IsTestEnvironment",
+              "name": "AzureWebJobs.CreateInvestor.Disabled",
+              "value": "true"
+            },
+            {
+              "name": "AzureWebJobs.GetInvestor.Disabled",
               "value": "true"
             },
             {

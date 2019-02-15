@@ -25,7 +25,8 @@
   <ItemGroup>
     <Content Include="addIpRestriction.json" />
     <Content Include="removeIpRestriction.json" />
-    <Content Include="testFunctions.json" />
+    <Content Include="ProdARM.json" />
+    <Content Include="TestARM.json" />
     <Content Include="empty.parameters.json" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
