@@ -24,6 +24,18 @@ steps:
     artifactName: app
 
 - task: CopyFiles@2
+  displayName: 'Copy ARM Templates'
+  inputs:
+    sourceFolder: 'src/InvestFunctionApp/AzureTemplates'
+    targetFolder: '$(Build.ArtifactStagingDirectory)/ARM'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish ARM artifact'
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)/ARM'
+    artifactName: ARM
+
+- task: CopyFiles@2
   displayName: 'Copy end to end tests'
   inputs:
     sourceFolder: 'src/InvestFunctionApp'
