@@ -22,7 +22,7 @@
       "location": "southcentralus",
       "properties": {
         "networkAcls": {
-          "bypass": "AzureServices",
+          "bypass": "AzureServices"
         },
         "supportsHttpsTrafficOnly": true,
         "encryption": {
