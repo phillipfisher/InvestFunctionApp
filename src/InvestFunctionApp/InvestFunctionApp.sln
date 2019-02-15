@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestFunctionApp.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestFunctionApp.EndToEndTests", "InvestFunctionApp.EndToEndTests\InvestFunctionApp.EndToEndTests.csproj", "{F351A495-E062-479E-B5B3-CAD0A9843E96}"
 EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureTemplates", "AzureTemplates\AzureTemplates.deployproj", "{DB955A55-C014-4DA7-89BF-236462BB6CD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F351A495-E062-479E-B5B3-CAD0A9843E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F351A495-E062-479E-B5B3-CAD0A9843E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F351A495-E062-479E-B5B3-CAD0A9843E96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB955A55-C014-4DA7-89BF-236462BB6CD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB955A55-C014-4DA7-89BF-236462BB6CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB955A55-C014-4DA7-89BF-236462BB6CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB955A55-C014-4DA7-89BF-236462BB6CD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
