@@ -131,6 +131,32 @@
             }
           ],
           "loadBalancing": "LeastRequests",
+          "siteAuthEnabled": false,
+          "siteAuthSettings": {
+            "enabled": null,
+            "unauthenticatedClientAction": null,
+            "tokenStoreEnabled": null,
+            "allowedExternalRedirectUrls": null,
+            "defaultProvider": null,
+            "clientId": "78b997d2-2ff7-4e5f-903e-db62ce2ab383",
+            "clientSecret": null,
+            "clientSecretCertificateThumbprint": null,
+            "issuer": "https://sts.windows.net/4b7cb3ea-5450-4bf8-bfa3-e096d0e3ac2a/",
+            "allowedAudiences": null,
+            "additionalLoginParams": null,
+            "isAadAutoProvisioned": false,
+            "googleClientId": null,
+            "googleClientSecret": null,
+            "googleOAuthScopes": null,
+            "facebookAppId": null,
+            "facebookAppSecret": null,
+            "facebookOAuthScopes": null,
+            "twitterConsumerKey": null,
+            "twitterConsumerSecret": null,
+            "microsoftAccountClientId": null,
+            "microsoftAccountClientSecret": null,
+            "microsoftAccountOAuthScopes": null
+          },
           "cors": {
             "allowedOrigins": [
               "https://functions.azure.com",
