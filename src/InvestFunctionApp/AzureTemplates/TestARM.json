@@ -131,7 +131,7 @@
             }
           ],
           "loadBalancing": "LeastRequests",
-          "siteAuthEnabled": false,
+          "siteAuthEnabled": true,
           "siteAuthSettings": {
             "enabled": null,
             "unauthenticatedClientAction": null,
